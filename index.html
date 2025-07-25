@@ -20,40 +20,52 @@
             To Do List
         </h1>
     </header>
+    <main>
         <section class="container">
-            <div>
-                <div class="input-group mb-3">
-                <input id="inputTarea" type="text" class="form-control border border-primary" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                <button class="btn btn-primary" id="agregarTarea" type="submit">Agregar Tarea</button>
+            <div class="row">
+                <div class="col-9">
+                    <div class="m-3">
+                        <div class="input-group">
+                            <span class="col-2 input-group-text text-center" id="labelNombre">Nueva Tarea</span>
+                            <input type="text" class="form-control" id="inputNombre" aria-describedby="basic-addon3 basic-addon4">
+                        </div>
+                    </div>
+                    <div class="m-3">
+                        <div class="input-group">
+                            <span class="col-2 input-group-text text-center" id="labelDescripcion">Descripción </span>
+                            <input type="text" class="form-control" id="inputDescripcion" aria-describedby="basic-addon3 basic-addon4">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 mt-3">
+                    <div>
+                        <button class="btn btn-primary text-center p-3 mt-1" id="agregarTarea" type="submit">Agregar Nueva Tarea</button>
+                    </div>
                 </div>
             </div>
+            
+        </section>
+
+
+        <section class="container">
+            <div class="text-center p-3">
+                <h2>Tareas Pendientes: </h2>
+            </div>
+            <div class="accordion" id="contenedor-tareas2">
+                
+            </div>    
         </section>
 
         <section class="container">
-            <div class="row justify-content-between">
-                <div >
-                <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Tarea</th>
-                        <th scope="col">Fecha de ingreso</th>
-                        <th scope="col">Completar</th>
-                        <th scope="col">Eliminar</th>
-                        <th scope="col">Editar</th>
-                        </tr>
-                    </thead>
-                    <tbody id="contenedor-tareas" class="listaTareas">
-                    </tbody>
-                </table>
+            <div class="text-center p-3">
+                <h2>Tareas Completas: </h2>
             </div>
-            <!-- Aquí se inserta la lista de tareas -->
-            </div>
-            
-
+            <div class="accordion" id="contenedor-tareas-completas">
+                
+            </div> 
         </section>
 
-
+    </main>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
