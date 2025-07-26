@@ -11,7 +11,7 @@ html{
 body {
     height: 100%;
     margin: 0;
-    background-image: url("/img/fondo.jpg");;
+    background-image: url("../img/fondo.jpg");
     /* Opciones adicionales */
     /* background-repeat: no-repeat; Evita que la imagen se repita */
     background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
