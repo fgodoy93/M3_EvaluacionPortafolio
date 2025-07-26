@@ -71,13 +71,13 @@ $("#agregarTarea").on("click", function() {
                         Fecha de creación: ${tarea.fecha}<br><br>
                         <div class="row text-center">
                             <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-success confirmarTarea">Terminar Tarea</button>
+                                <button data-id="${tarea.id}" class="btn btn-success confirmarTarea">Completar</button>
                             </div>
                             <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-primary editarTarea">Editar Tarea</button>
+                                <button data-id="${tarea.id}" class="btn btn-primary editarTarea">Editar</button>
                             </div>
                             <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-danger eliminarTarea">Eliminar Tarea</button>
+                                <button data-id="${tarea.id}" class="btn btn-danger eliminarTarea">Eliminar</button>
                             </div>
                             
                         </div>
@@ -182,13 +182,13 @@ function mostrarTareas(){
                         Fecha de creación: ${tarea.fecha}<br><br>
                         <div class="row text-center">
                             <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-success terminarTarea">Terminar Tarea</button>
+                                <button data-id="${tarea.id}" class="btn btn-success terminarTarea">Completar</button>
                             </div>
                             <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-primary editarTarea">Editar Tarea</button>
+                                <button data-id="${tarea.id}" class="btn btn-primary editarTarea">Editar</button>
                             </div>
                             <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-danger eliminarTarea">Eliminar Tarea</button>
+                                <button data-id="${tarea.id}" class="btn btn-danger eliminarTarea">Eliminar</button>
                             </div>
                             
                         </div>
