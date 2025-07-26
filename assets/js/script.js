@@ -33,14 +33,14 @@ $("#agregarTarea").on("click", function() {
     nombreTarea = $("#inputNombre").val().trim()
     //Verifico si el input nombre esta vacio
     if(!nombreTarea){
-        alert("Por favor ingresa una descripción de la tarea")
+        alert("Por favor ingresa una tarea")
         return
     }
     detalleTarea = $("#inputDescripcion").val().trim()
 
     //Verifico si el input detalle esta vacio
     if(!detalleTarea){
-        alert("Por favor ingresa escribe la tarea")
+        alert("Por favor describe la tarea")
         return
     }
 
@@ -71,7 +71,7 @@ $("#agregarTarea").on("click", function() {
                         Fecha de creación: ${tarea.fecha}<br><br>
                         <div class="row text-center">
                             <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-success confirmarTarea">Confirmar Tarea</button>
+                                <button data-id="${tarea.id}" class="btn btn-success confirmarTarea">Terminar Tarea</button>
                             </div>
                             <div class="col">
                                 <button data-id="${tarea.id}" class="btn btn-primary editarTarea">Editar Tarea</button>
@@ -99,7 +99,7 @@ $("#agregarTarea").on("click", function() {
 });
 
 //CONFIRMAR UNA TAREA
-$(document).on("click", ".confirmarTarea", function() {
+$(document).on("click", ".terminarTarea", function() {
     //Rescatamos el id del elemento asignado en el boton
     const id = parseInt($(this).data("id"))
     confirmarTarea(id)
@@ -182,7 +182,7 @@ function mostrarTareas(){
                         Fecha de creación: ${tarea.fecha}<br><br>
                         <div class="row text-center">
                             <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-success confirmarTarea">Confirmar Tarea</button>
+                                <button data-id="${tarea.id}" class="btn btn-success terminarTarea">Terminar Tarea</button>
                             </div>
                             <div class="col">
                                 <button data-id="${tarea.id}" class="btn btn-primary editarTarea">Editar Tarea</button>

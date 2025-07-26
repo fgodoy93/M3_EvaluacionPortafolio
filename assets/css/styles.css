@@ -1,5 +1,33 @@
-body{
-    /* background-color: #2e2f2f; */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    background-image: url("/assets/img/fondo.jpg");
+    /* Opciones adicionales */
+    /* background-repeat: no-repeat; Evita que la imagen se repita */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen */
+    background-repeat: repeat;
+}
+
+
+body > .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    flex: 1;
 }
 
 h1{
