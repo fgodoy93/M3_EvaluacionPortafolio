@@ -59,15 +59,32 @@ $("#agregarTarea").on("click", function() {
     let nuevaFila = `
         <div class="accordion-item">
                     <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse[${tarea.id}]" aria-expanded="true" aria-controls="collapseOne">
+                    <button class="accordion-button estilo-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapse[${tarea.id}]" aria-expanded="true" aria-controls="collapseOne">
                         <div class="col-1">#${tareas.length} </div> 
                         <div class="col"><strong>${tarea.nombre}</strong></div>                    
                     </button>
                     </h2>
-                    no
-                        
-                    </div>
-                    
+                    <div id="collapse[${tarea.id}]" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            ${tarea.descripcion}<br><br>
+                            ID Tarea: #${tarea.id}<br><br>
+                            Fecha de creación: ${tarea.fecha}<br><br>
+                            <div class="row justify-content-center">
+                            <div class="col-12 col-lg-8">
+                                <div class="row justify-content-center text-center g-2">
+                                <div class="col-6 col-md-4 d-flex">
+                                    <button data-id="${tarea.id}" class="btn btn-success flex-fill completarTarea">Completar</button>
+                                </div>
+                                <div class="col-6 col-md-4 d-flex">
+                                    <button data-id="${tarea.id}" class="btn btn-primary flex-fill editarTarea">Editar</button>
+                                </div>
+                                <div class="col-6 col-md-4 d-flex">
+                                    <button data-id="${tarea.id}" class="btn btn-danger flex-fill eliminarTarea">Eliminar</button>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
                     </div>
                 </div>`
 
