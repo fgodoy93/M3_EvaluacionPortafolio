@@ -64,23 +64,7 @@ $("#agregarTarea").on("click", function() {
                         <div class="col"><strong>${tarea.nombre}</strong></div>                    
                     </button>
                     </h2>
-                    <div id="collapse[${tarea.id}]" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body flex">
-                        ${tarea.descripcion}<br><br>
-                        ID Tarea: #${tarea.id}<br><br>
-                        Fecha de creación: ${tarea.fecha}<br><br>
-                        <div class="row text-center">
-                            <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-success confirmarTarea">Completar</button>
-                            </div>
-                            <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-primary editarTarea">Editar</button>
-                            </div>
-                            <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-danger eliminarTarea">Eliminar</button>
-                            </div>
-                            
-                        </div>
+                    no
                         
                     </div>
                     
@@ -98,8 +82,8 @@ $("#agregarTarea").on("click", function() {
     return
 });
 
-//CONFIRMAR UNA TAREA
-$(document).on("click", ".terminarTarea", function() {
+//COMPLETAR UNA TAREA
+$(document).on("click", ".completarTarea", function() {
     //Rescatamos el id del elemento asignado en el boton
     const id = parseInt($(this).data("id"))
     confirmarTarea(id)
@@ -115,51 +99,11 @@ $(document).on("click", ".eliminarTarea", function() {
 $(document).on("click", ".editarTarea", function() {
     //Rescatamos el id del elemento asignado en el boton
     const id = parseInt($(this).data("id"));
-
-    //Buscamos en el arreglo la tarea según el id
-    let tarea = tareas.find(t => t.id === id);
-    if (!tarea) return;
-
-    //Se filtra la tarea del arreglo (se excluye la tarea con este id)
-    let nuevaTarea = "";
-
-    do {
-        nuevaTarea = prompt("Ingrese el nombre de la tarea:");
-        if (nuevaTarea === null) {
-            // Si cancela el prompt, salimos sin hacer cambios
-            return;
-        }
-        nuevaTarea = nuevaTarea.trim();
-        if (nuevaTarea === "") {
-            alert("Ingrese un nombre para la tarea.");
-        }
-    } while (nuevaTarea === "");
-
-    // Si todo está bien, asignamos
-    tarea.nombre = nuevaTarea;
-
-    let nuevaDescripcion = "";
-
-    do {
-        nuevaDescripcion = prompt("Ingrese la descripción de la tarea:");
-        if (nuevaDescripcion === null) {
-            // Si cancela el prompt, salimos sin hacer cambios
-            return;
-        }
-        nuevaDescripcion = nuevaDescripcion.trim();
-        if (nuevaDescripcion === "") {
-            alert("Ingrese una descripción para la tarea.");
-        }
-    } while (nuevaDescripcion === "");
-
-    // Si todo está bien, asignamos
-    tarea.descripcion = nuevaDescripcion;
+    editarTarea(id)
+})
 
 
-    //Se vacia el contenedor y se carga nuevamente la lista actualizada
-    $("#contenedor-tareas2").empty();
-    mostrarTareas();
-});
+
 
 function mostrarTareas(){
     let contenedor = $("#contenedor-tareas2")
@@ -170,31 +114,32 @@ function mostrarTareas(){
         let card = `
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse[${tarea.id}]" aria-expanded="true" aria-controls="collapseOne">
+                    <button class="accordion-button estilo-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapse[${tarea.id}]" aria-expanded="true" aria-controls="collapseOne">
                         <div class="col-1">#${i+1} </div> 
                         <div class="col"><strong>${tarea.nombre}</strong></div>                    
                     </button>
                     </h2>
                     <div id="collapse[${tarea.id}]" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body flex">
-                        ${tarea.descripcion}<br><br>
-                        ID Tarea: #${tarea.id}<br><br>
-                        Fecha de creación: ${tarea.fecha}<br><br>
-                        <div class="row text-center">
-                            <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-success terminarTarea">Completar</button>
+                        <div class="accordion-body">
+                            ${tarea.descripcion}<br><br>
+                            ID Tarea: #${tarea.id}<br><br>
+                            Fecha de creación: ${tarea.fecha}<br><br>
+                            <div class="row justify-content-center">
+                            <div class="col-12 col-lg-8">
+                                <div class="row justify-content-center text-center g-2">
+                                <div class="col-6 col-md-4 d-flex">
+                                    <button data-id="${tarea.id}" class="btn btn-success flex-fill completarTarea">Completar</button>
+                                </div>
+                                <div class="col-6 col-md-4 d-flex">
+                                    <button data-id="${tarea.id}" class="btn btn-primary flex-fill editarTarea">Editar</button>
+                                </div>
+                                <div class="col-6 col-md-4 d-flex">
+                                    <button data-id="${tarea.id}" class="btn btn-danger flex-fill eliminarTarea">Eliminar</button>
+                                </div>
+                                </div>
                             </div>
-                            <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-primary editarTarea">Editar</button>
                             </div>
-                            <div class="col">
-                                <button data-id="${tarea.id}" class="btn btn-danger eliminarTarea">Eliminar</button>
-                            </div>
-                            
                         </div>
-                        
-                    </div>
-                    
                     </div>
                 </div>
         `;
@@ -211,7 +156,7 @@ function mostrarTareasCompletas(){
         let card = `
                 <div class="accordion-item">
                     <h2 class="accordion-header">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse[${tarea.id}]" aria-expanded="true" aria-controls="collapseOne">
+                    <button class="accordion-button estilo-collapse" type="button" data-bs-toggle="collapse" data-bs-target="#collapse[${tarea.id}]" aria-expanded="true" aria-controls="collapseOne">
                         <div class="col-1">#${i+1} </div> 
                         <div class="col"><strong>${tarea.nombre}</strong></div>                    
                     </button>
@@ -261,4 +206,49 @@ function confirmarTarea(id){
         mostrarTareasCompletas()
         console.log(tareasCompletas)
 
+}
+
+function editarTarea(id){
+    //Buscamos en el arreglo la tarea según el id
+    let tarea = tareas.find(t => t.id === id);
+    if (!tarea) return;
+
+    //Se filtra la tarea del arreglo (se excluye la tarea con este id)
+    let nuevaTarea = "";
+
+    do {
+        nuevaTarea = prompt("Ingrese el nuevo nombre de la tarea:");
+        if (nuevaTarea === null) {
+            // Si cancela el prompt, salimos sin hacer cambios
+            return;
+        }
+        nuevaTarea = nuevaTarea.trim();
+        if (nuevaTarea === "") {
+            alert("Ingrese el nuevo nombre de la tarea");
+        }
+    } while (nuevaTarea === "");
+
+    // Si todo está bien, asignamos
+    tarea.nombre = nuevaTarea;
+
+    let nuevaDescripcion = "";
+
+    do {
+        nuevaDescripcion = prompt("Ingrese la descripción de la tarea:");
+        if (nuevaDescripcion === null) {
+            // Si cancela el prompt, salimos sin hacer cambios
+            return;
+        }
+        nuevaDescripcion = nuevaDescripcion.trim();
+        if (nuevaDescripcion === "") {
+            alert("Ingrese una descripción para la tarea.");
+        }
+    } while (nuevaDescripcion === "");
+
+    // Si todo está bien, asignamos
+    tarea.descripcion = nuevaDescripcion;
+
+    //Se vacia el contenedor y se carga nuevamente la lista actualizada
+    $("#contenedor-tareas2").empty();
+    mostrarTareas();
 }
