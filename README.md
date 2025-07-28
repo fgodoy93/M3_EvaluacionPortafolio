@@ -14,6 +14,7 @@ Cómo ejecutar el proyecto
 Clona el repositorio:
 git clone https://github.com/fgodoy93/M3_EvaluacionPortafolio.git
 Abre el archivo index.html en tu navegador.
+(También lo puedes ver en línea https://fgodoy93.github.io/M3_EvaluacionPortafolio/)
 
  ¿Cómo JavaScript facilita la interacción y manipulación del DOM?
 JavaScript facilita la interacción y manipulación del DOM al permitir que la mayoría de los elementos visibles se generen de manera dinámica (inserción de código mediante contenedores).
